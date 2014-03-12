@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <title>Window.js - Demo</title>
+
+        <link type="text/css" rel="stylesheet" href="window.css">
+        <link type="text/css" rel="stylesheet" href="demo.css">
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
+        <script type="text/javascript" src="window.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                var wm = $('#window').windowManager({
+                    hooks : {
+                        onAdd : function(obj){ message('Window type ' + obj.type + ' added.') },
+                        onRemove: function(obj){ message('Window type ' + obj.type + ' removed.') },
+                        onDrag : function(obj, pixels){ message('Divider moved ' + pixels + ' pixels.'); }
+                    }
+                });
+
+                $('#bar button').click(function(){
+                  $('.introduction').remove();
+                });
+
+                $('#bar button.add').click(function(){
+                    var type = $(this).attr('id');
+                    wm.windowManager('edit', type);
+                });
+
+                $('#bar button#remove').click(function(){
+                    var type = $(this).attr('id');
+                    wm.windowManager('edit', type, 'delete');
+                });
+
+                $('#load').click(function(){
+                    var json = $('#json').val();
+                    wm.windowManager('load', json);
+                })
+
+                $('#save').click(function(){
+                    var json = wm.windowManager('save');
+                    $('#json').val(json);
+                })
+
+                function message(string){
+                    var messages = $('#messages').empty();
+
+                    $('<div />')
+                        .text(string)
+                        .appendTo(messages)
+                        .fadeOut(2000, function(){ $(this).remove() })
+                }
+            });
+        </script>
+    </head>
+    <body>
+        <div id="example">
+            <div id="bar">
+                <div class="left">
+                  <button id="one" class="one add">Add type one</button>
+                  <button id="two" class="two add">Add type two</button>
+                  <button id="three" class="three add">Add type three</button>
+                </div>
+                <div class="right">
+                  <div id="messages"></div>
+                  <button id="remove">Remove a view</button>
+                  <button id="load">Load</button>
+                  <button id="save">Save</button>
+                  <input id="json">
+                </div>
+            </div>
+            <div id="window">
+              <div class="introduction">
+                <h1>window.js</h1>
+                <h2>Add a view to begin!</h2>
+              </div>
+            </div>
+        </div>
+    </body>
+</html>

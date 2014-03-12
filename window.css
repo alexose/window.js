@@ -1,0 +1,35 @@
+.wm ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.wm ul li {
+    float: left;
+    height: 32px;
+    width: 80px;
+    margin: 0 10px 0 0;
+    overflow: hidden;
+    text-align: center;
+}
+
+.wm ul li button{
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.wm ul li:hover {
+    background: none;
+    cursor: pointer;
+}
+
+.wm div.frame{
+    overflow: hidden;
+}
+
+.wm div.divider{
+    display: block;
+    background: #ccc;
+}
