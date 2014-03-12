@@ -377,17 +377,19 @@
                     .css(css);
 
             // Transparent blocking div to prevent accidental interaction with the element below
-            d.block = $('<div />')
-                .addClass('window-block')
-                .css($.extend(css, {
-                    'width' : '100%',
-                    'height' : '100%',
-                    'z-index' : 10001,
-                    'background': 'none',
-                    'opacity': 'auto',
-                    'pointer-events' : 'auto'
-                }))
-                .prependTo(container);
+            if (!d.block){
+              d.block = $('<div />')
+                  .addClass('window-block')
+                  .css($.extend(css, {
+                      'width' : '100%',
+                      'height' : '100%',
+                      'z-index' : 10001,
+                      'background': 'none',
+                      'opacity': 'auto',
+                      'pointer-events' : 'auto'
+                  }))
+                  .prependTo(container);
+            }
 
             container
                 .unbind(space)
