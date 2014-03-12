@@ -5,21 +5,23 @@ A tiling window manager for your web page.
 
 Window.js is a tool for laying out dashboards, editors, and visualizations in a snap.  It's particularly useful when dealing with reusable charts, as it allows a users to rearrange and resize elements on their own.
 
-# Quickstart
+[Live demo](http://alexose.github.io/window.js)
+
+## Quickstart
 
 Include jquery, window.js and window.css in your page source:
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="//alexose.github.io/windowjs/window.js"></script>
-    <link type="text/css" rel="stylesheet" href="//alexose.github.io/windowjs/window.css">
+    <script src="//alexose.github.io/window.js/window.js"></script>
+    <link type="text/css" rel="stylesheet" href="//alexose.github.io/window.js/window.css">
 
 Then call it:
 
     <script>$('#example').windowManager();</script>
 
-# Features
+## Features
 
-## Events
+### Events
 
 Window.js exposes events for adding, removing, and resizing.  It's easy to hook into these events:
 
@@ -36,13 +38,13 @@ Window.js exposes events for adding, removing, and resizing.  It's easy to hook 
         console.log(obj);
     }
 
-## Saving
+### Saving
 
 Window.js can save its configuation as JSON at any time.  This makes it possible for users to save preferred layouts for later:
 
     var json = $('#example').windowManager('save');
 
-## Loading
+### Loading
 
 Loading the above JSON is easy:
 
