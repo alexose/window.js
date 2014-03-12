@@ -5,7 +5,7 @@ A tiling window manager for your web page.
 
 Window.js is a tool for laying out dashboards, editors, and visualizations in a snap.  It's particularly useful when dealing with reusable charts, as it allows a users to rearrange and resize elements on their own.
 
-[Live demo](http://alexose.github.io/window.js)
+## [Live demo](http://alexose.github.io/window.js)
 
 ## Quickstart
 
