@@ -234,9 +234,6 @@
         var self    = this,
             main    = this.getMain().container;
 
-        this.height = main.height();
-        this.width  = main.width();
-
         this.timer  = false;
 
         $(window).resize(function(){
@@ -323,12 +320,13 @@
 
     // Resize the "desktop"
     WindowManager.prototype.resize = function(){
+
         var element = this.$el,
             newh = element.height(),
             neww= element.width(),
-            h = this.height - newh,
-            w = this.width  - neww,
-            main = this.getMain();
+            main = this.getMain().container,
+            h = main.height() - newh,
+            w = main.width()  - neww;
 
         main.size(-h, 'height');
         main.size(-w, 'width');
